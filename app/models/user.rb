@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :name, length: { in: 2..20 }
+
   #deviseでemailを不必要にする
   def email_required?
   	false
@@ -11,4 +13,14 @@ class User < ApplicationRecord
   def email_changed?
 	false
   end
+
+   def new
+   end
+   def create
+   end
+   def index
+   end
+   def show
+   end
+
 end

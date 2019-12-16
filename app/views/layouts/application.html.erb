@@ -9,6 +9,29 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <nav class="nav navbar-nav navbar-left">
+        <span>Bookers</span>
+      </nav>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><a class=""><%= link_to 'Home', user_path(current_user.id) %></a></li>
+            <li><a class="">User</a></li>
+            <li><a class="">Books</a></li>
+            <li><a class=""><%= link_to 'logout', destroy_user_session_path, method: :delete %></a></li>
+          <% else %>
+            <li><a class="">Home</a></li>
+            <li><a class="">About</a></li>
+            <li><a class="">sign up</a></li>
+            <li><a class="">login</a></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <body>
     <%= yield %>
   </body>
