@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   validates :name, length: { in: 2..20 }
 
+  attachment :profile_image
+
   #deviseでemailを不必要にする
   def email_required?
   	false
@@ -13,14 +15,5 @@ class User < ApplicationRecord
   def email_changed?
 	false
   end
-
-   def new
-   end
-   def create
-   end
-   def index
-   end
-   def show
-   end
 
 end
