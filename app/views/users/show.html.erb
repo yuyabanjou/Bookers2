@@ -1,40 +1,5 @@
-<body>
 
-	<!-- User info -->
-	<div class="col-xs-3">
-		<h2>User info</h2>
-		<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
-		<table class="table">
-			<tbody>
-				<tr>
-					<th>name</th>
-					<th><%= @user.name %></th>
-				</tr>
-				<tr>
-					<th>introduction</th>
-					<th><%= @user.introduction %></th>
-				</tr>
-			</tbody>
-		</table>
-		<% if @user.id == current_user.id %>
-	        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
-	    <% end %>
-	</div>
-
-	<!-- New book -->
-	<h1>New book</h1>
-
-	<%= form_for(@book) do |f| %>
-
-	    <h4>title</h4>
-	    <%= f.text_field :title %>
-
-	    <h4>opinion</h4>
-	    <%= f.text_area :body %>
-
-	    <%= f.submit 'Create Book' %>
-
-	<% end %>
+	<%= render"users/info", user: @user, book_new: @book_new %>
 
 	<!-- 一覧 -->
 	<table>
@@ -61,6 +26,3 @@
 
 		</tbody>
 	</table>
-
-</body>
-

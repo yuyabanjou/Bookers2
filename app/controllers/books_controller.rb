@@ -3,16 +3,18 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    @book = Book.new
+    @book_new = Book.new
+    @user = current_user
   end
 
   def show
+    @book_new = Book.new
   	@book = Book.find(params[:id])
     @user = @book.user
   end
 
   def create
-  	@book = Book.new(book_params)
+  	@book_new = Book.new(book_params)
     @book.user_id = current_user.id
   	 if @book.save
   	 	flash[:notice] = "Book was successfully created."
