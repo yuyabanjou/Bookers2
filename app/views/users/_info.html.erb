@@ -1,4 +1,4 @@
-
+  <div class="low">
 	<!-- User info -->
 	<div class="col-xs-3">
 		<h2>User info</h2>
@@ -16,21 +16,26 @@
 			</tbody>
 		</table>
 		<% if user.id == current_user.id %>
-	        <p><%= link_to "プロフィール編集", edit_user_path(user), class: "pull-right" %></p>
+	        <p><%= link_to "🔧", edit_user_path(user), class: "col-xs-12 btn btn-default" %></p>
 	    <% end %>
-	</div>
+
 
 	<!-- New book -->
-	<h1>New book</h1>
+		<h1>New book</h1>
 
-	<%= form_for(book_new) do |f| %>
+		<%= form_for(book_new) do |f| %>
 
-	    <h4>title</h4>
-	    <%= f.text_field :title %>
+		  <div class="">
+		    <h4>title</h4>
+		    <%= f.text_field :title %>
 
-	    <h4>opinion</h4>
-	    <%= f.text_area :body %>
+		    <h4>opinion</h4>
+		    <%= f.text_area :body %>
 
-	    <%= f.submit 'Create Book' %>
+		    <%= f.submit 'Create Book', class: "col-xs-12 btn btn-default" %>
+		  </div>
+		<% end %>
 
-	<% end %>
+	</div>
+
+  </div>
