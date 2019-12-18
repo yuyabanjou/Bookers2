@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!
+
+	def index
+ 		@users = User.all
+		@users = User.order(id: :asc)
+		@book = Book.new
+	end
+
 	def show
+		@book = Book.new
 		@user = User.find(params[:id])
+		@books = @user.books.all
 	end
 
 	def edit
