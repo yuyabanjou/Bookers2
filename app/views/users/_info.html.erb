@@ -1,4 +1,6 @@
-  <div class="low">
+
+
+
 	<!-- User info -->
 	<div class="col-xs-3">
 		<h2>User info</h2>
@@ -27,15 +29,16 @@
 
 		  <div class="">
 		    <h4>title</h4>
-		    <%= f.text_field :title %>
+		    <%= f.text_field :title, class: "col-xs-12" %>
 
 		    <h4>opinion</h4>
-		    <%= f.text_area :body %>
-
+		    <%= f.text_area :body, class: "col-xs-12" %>
+		    <br>
 		    <%= f.submit 'Create Book', class: "col-xs-12 btn btn-default" %>
 		  </div>
 		<% end %>
 
 	</div>
 
-  </div>
+
+

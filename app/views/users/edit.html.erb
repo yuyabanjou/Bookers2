@@ -1,8 +1,16 @@
-<div class="container">
+
+ <div class="body">
+    <div class="container">
+        <div class="low">
+            <div class="col-xs-3">
+
 
 <%= form_for(@user) do |f| %>
 
+    <h2>User info</h2>
+
 	<!-- name -->
+    <h4>name</h4>
     <div class="form-group has-icon">
         <label class="control-label sr-only" for="inputName">Name</label>
         <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"名前"%>
@@ -10,6 +18,7 @@
     </div>
 
     <!-- profile_image -->
+    <h4>image</h4>
     <div class="form-group has-icon">
     <div class="user-edit-image">
         <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
@@ -19,13 +28,17 @@
 	</div>
 
 	<!-- introduction -->
+    <h4>introduction</h4>
 	<div class="form-group has-icon">
         <label class="control-label sr-only" for="inputIntroduction">Introduction</label>
         <%= f.text_area :introduction, autofocus: true, class:"form-control", id:"inputIntroduction", placeholder:"詳細"%>
         <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
     </div>
-    <%= f.submit "Update User", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+    <%= f.submit "Update User", class:"btn btn-default" %>
 <% end %>
 
+            </div>
+        </div>
+    </div>
 </div>
 
