@@ -8,3 +8,26 @@
 	  </ul>
 	 </div>
 <% end %>
+
+<% if @book_new.errors.any? %>
+	<div id="error_explanation">
+	 <h2><%= @book_new.errors.count %>件のエラーがあります。</h2>
+	  <ul>
+	  	<% @book_new.errors.full_messages.each do |msg| %>
+	  	<li><%= msg %></li>
+		<% end %>
+	  </ul>
+	 </div>
+<% end %>
+
+
+<% if @user.errors.any? %>
+	<div id="error_explanation">
+	 <h2><%= @user.errors.count %>件のエラーがあります。</h2>
+	  <ul>
+	  	<% @user.errors.full_messages.each do |msg| %>
+	  	<li><%= msg %></li>
+		<% end %>
+	  </ul>
+	 </div>
+<% end %>

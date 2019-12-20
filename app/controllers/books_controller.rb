@@ -28,8 +28,9 @@ class BooksController < ApplicationController
 
   def edit
   	@book = Book.find(params[:id])
-    #投稿しているbookのuserのidがログインしているユーザーのid"ではなかった"場合
-    #booksのindexへ飛ぶ
+     if @book.user != current_user
+      redirect_to books_path
+     end
   end
 
   def update

@@ -1,5 +1,13 @@
-
-
+	<% if @book_new.errors.any? %>
+	 <div id="error_explanation">
+	 	<h2><%= @book_new.errors.count %> error prohibited this book from being saved:</h2>
+	 	<ul>
+	 		<% @book_new.errors.full_messages.each do |msg| %>
+	 		 <li><%= msg %></li>
+	 		<% end %>
+	 	</ul>
+	 </div>
+	<% end %>
 
 	<!-- User info -->
 	<div class="col-xs-3">
@@ -27,15 +35,13 @@
 
 		<%= form_for(book_new) do |f| %>
 
-		  <div class="">
-		    <h4>title</h4>
+		    <%= f.label :title %>
 		    <%= f.text_field :title, class: "col-xs-12" %>
 
-		    <h4>opinion</h4>
+		    <%= f.label :body %>
 		    <%= f.text_area :body, class: "col-xs-12" %>
 		    <br>
 		    <%= f.submit 'Create Book', class: "col-xs-12 btn btn-default" %>
-		  </div>
 		<% end %>
 
 	</div>
